@@ -5,12 +5,10 @@ import { connect } from 'react-redux';
 class Header extends React.Component {
   render() {
     const { email, expenses } = this.props;
-    console.log(expenses);
     const expensesResult = expenses.reduce((sum, { value, currency, exchangeRates }) => {
       sum += parseFloat(value) * parseFloat(exchangeRates[currency].ask);
       return sum;
     }, 0);
-    console.log(expensesResult);
 
     return (
       <header>
@@ -24,7 +22,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  expenses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
 
 const mapStateToProps = (state) => {
