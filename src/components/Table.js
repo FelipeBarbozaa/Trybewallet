@@ -5,11 +5,6 @@ import { connect } from 'react-redux';
 class Table extends React.Component {
   render() {
     const { expenses } = this.props;
-    console.log(expenses);
-    if (expenses.length > 0) {
-      const teste = expenses[0].exchangeRates.USD.name.split('/');
-      console.log(teste);
-    }
     return (
       <table className="table">
         <thead>
